@@ -38,7 +38,7 @@ Package.onUse(function (api) {
   ], ['server', 'client'])
 
   api.use([
-    'sanjo:karma@1.7.0',
+    'sanjo:karma@2.0.0',
     'sanjo:meteor-version@1.0.0',
     'package-version-parser',
     'sanjo:meteor-files-helpers@1.1.0_7'
