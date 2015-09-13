@@ -52,7 +52,8 @@ _.extend(ClientUnitTestFramework.prototype, {
     log.debug('WebApp has been (re)started, starting Karma.');
     self._generateContextHtml();
     self._generateDebugHtml();
-    Karma.start(self.name, this.getKarmaConfig())
+    Karma.stop(self.name);
+    Karma.restartWithConfig(self.name, this.getKarmaConfig())
 
     // Listen for message 'refresh:client' that signals incoming 'refreshable' autoupdate
     process.on('message', Meteor.bindEnvironment(function (m) {
@@ -108,7 +109,7 @@ _.extend(ClientUnitTestFramework.prototype, {
     ]
     this.userKarmaConfig = _.omit(config, blacklist)
     log.debug('User has changed Karma config. Updating Karma config file.')
-    Karma.setConfig(this.name, this.getKarmaConfig())
+    Karma.restartWithConfig(this.name, this.getKarmaConfig())
   },
 
   getKarmaConfig: function () {
@@ -241,7 +242,7 @@ _.extend(ClientUnitTestFramework.prototype, {
       watched: false,
       included: _.contains(['js', 'css'], file.type),
       served: true,
-      nocache: false
+      nocache: true
     });
 
     if (file.type === 'asset') {
