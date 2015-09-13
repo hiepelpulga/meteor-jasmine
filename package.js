@@ -115,7 +115,7 @@ Package.onUse(function (api) {
   // Assets
   // ----------------------------------------
 
-  api.addFiles([
+  api.addAssets([
     // Sample tests
     'src/client/integration/sample-tests/sample/spec/PlayerSpec.js',
     'src/client/integration/sample-tests/sample/spec/SpecMatchers.js',
@@ -149,6 +149,6 @@ Package.onUse(function (api) {
     'src/client/unit/assets/mocks/packages/reload.js',
     'src/client/unit/assets/mocks/packages/meteorhacks_fast-render.js',
     'src/client/unit/assets/helpers/iron_router.js'
-  ], 'server', {isAsset: true})
+  ], 'server')
 
 })

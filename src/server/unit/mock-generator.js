@@ -38,7 +38,7 @@ function getEnvironmentIgnoredPackages() {
 }
 
 function shouldIgnoreExport (exportName) {
-  var exportsToIgnore = ['MongoInternals', 'WebAppInternals']
+  var exportsToIgnore = ['MongoInternals', 'NpmModuleMongodb', 'WebAppInternals']
 
   return _.contains(exportsToIgnore, exportName)
 }
