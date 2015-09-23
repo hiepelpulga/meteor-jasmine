@@ -1,3 +1,7 @@
+## 0.19.0
+
+* Compatibility with Meteor 1.2
+
 ## 0.18.0
 
 * Fix (Client unit): Assets and the head are now loaded correctly.

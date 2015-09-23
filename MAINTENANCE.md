@@ -16,6 +16,8 @@ cd test-app
 1. Increase the version in `package.js` (follow [Semantic Versioning conventions](http://semver.org/))
 2. Document changes in History.md
 3. `meteor publish`
-4. Commit "Release of X.X.X"
-5. Create a tag with the version "X.X.X"
-6. Push (`git push && git push --tags`)
+4. Update the sanjo:jasmine version in `test-app/packages/package-to-test/package.js`
+5. Update the sanjo:jasmine version in `test-app/.meteor/versions`
+6. Commit "Release of X.X.X"
+7. Create a tag with the version "X.X.X"
+8. Push (`git push && git push --tags`)
