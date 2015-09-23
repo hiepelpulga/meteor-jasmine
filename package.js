@@ -24,7 +24,7 @@ Npm.depends({
 Package.onUse(function (api) {
   api.export('Jasmine', 'server')
 
-  api.versionsFrom('METEOR@1.1.0.2')
+  api.versionsFrom('METEOR@1.2.0.1')
 
   api.use([
     'underscore',
