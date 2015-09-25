@@ -47,11 +47,24 @@ _.extend(ClientIntegrationTestFramework.prototype, {
   },
 
   startMirror: function () {
+    var self = this;
     var mirrorStarter = new MirrorStarter(this.name)
     var mirrorOptions = {}
 
     if (isTestPackagesMode()) {
       mirrorStarter.startSelfMirror(mirrorOptions)
+
+      process.on('message', Meteor.bindEnvironment(function (message) {
+        if (message && message.refresh === 'client') {
+          // Listen for message 'on-listening' that signals that the application has been rebuild
+          // and is ready to serve
+          // * This callback *must* be registered here in 'on-message-refresh-client'
+          // * because onListening is a short-lived registration that is removed after firing once
+          WebApp.onListening(function () {
+            Meteor.call('velocity/reports/reset', {framework: self.name})
+          })
+        }
+      }))
     } else {
       _.extend(mirrorOptions, {
         port: this._getCustomPort(),
@@ -83,7 +96,7 @@ _.extend(ClientIntegrationTestFramework.prototype, {
   runTests: function () {
     var self = this
 
-    Meteor.call('jasmine/environmentInfo', function(error, mirrorInfo) {
+    Meteor.call('jasmine/environmentInfo', function (error, mirrorInfo) {
       if (error) {
         throw error
       } else if (self.shouldRunTests(mirrorInfo)) {

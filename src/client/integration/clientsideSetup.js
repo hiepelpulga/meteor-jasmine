@@ -1,4 +1,5 @@
 var testFramework = new ClientIntegrationTestFramework()
+
 Meteor.startup(function () {
   Meteor.call('jasmine/environmentInfo', function (error, mirrorInfo) {
     if (error) {
@@ -7,6 +8,20 @@ Meteor.startup(function () {
     }
 
     if (mirrorInfo.isTestPackagesMode) {
+      var hasCompletedOnce = false;
+      Tracker.autorun(function () {
+        var clientAggregateReport = Velocity.Collections.AggregateReports
+          .findOne({name: testFramework.name});
+
+        if (clientAggregateReport) {
+          if (clientAggregateReport.result === 'completed') {
+            hasCompletedOnce = true;
+          } else if (hasCompletedOnce && clientAggregateReport.result === 'pending') {
+            Reload._reload();
+          }
+        }
+      });
+
       Tracker.autorun(function () {
         var serverAggregateReport = Velocity.Collections.AggregateReports
           .findOne({name: 'jasmine-server-integration'});

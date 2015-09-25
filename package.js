@@ -29,6 +29,8 @@ Package.onUse(function (api) {
   api.use([
     'underscore',
     'tracker',
+    'reload',
+    'webapp',
     'ddp',
     'jquery', // for jasmine-jquery
     'practicalmeteor:loglevel@1.2.0_2',
