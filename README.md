@@ -15,7 +15,7 @@ You also need to install a [Velocity Reporter package](https://github.com/meteor
 meteor add velocity:html-reporter
 ```
 
-## Getting started
+## Getting Started
 
 [Learn how to get started with sanjo:jasmine](https://velocity.readme.io/docs/getting-started-with-jasmine).
 
