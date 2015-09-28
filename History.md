@@ -1,3 +1,7 @@
+## 0.19.2
+
+* Fix (Client unit): Client unit tests do not rerun after changes
+
 ## 0.19.1
 
 * Fix (Package testing): Run client tests after server tests
