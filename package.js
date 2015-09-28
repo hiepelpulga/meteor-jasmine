@@ -6,7 +6,7 @@
 Package.describe({
   name: 'sanjo:jasmine',
   summary: 'Velocity integration of the Jasmine testing framework',
-  version: '0.19.2',
+  version: '0.20.0',
   git: 'https://github.com/Sanjo/meteor-jasmine.git',
   debugOnly: true
 })

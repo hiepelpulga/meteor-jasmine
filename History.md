@@ -1,3 +1,10 @@
+## 0.20.0
+
+* Fix: Disable server unit mode by default,
+       as it is deprecated and doesn't work with ES2015.
+       You can enable it by setting the environment variable 
+       `JASMINE_SERVER_UNIT=1`.
+
 ## 0.19.2
 
 * Fix (Client unit): Client unit tests do not rerun after changes
