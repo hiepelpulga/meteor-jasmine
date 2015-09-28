@@ -49,30 +49,35 @@ _.extend(ClientUnitTestFramework.prototype, {
   startKarma: function () {
     var self = this
 
-    log.debug('WebApp has been (re)started, starting Karma.');
-    self._generateContextHtml();
-    self._generateDebugHtml();
-    Karma.stop(self.name);
-    Karma.restartWithConfig(self.name, this.getKarmaConfig())
+    self._restartKarma();
 
     // Listen for message 'refresh:client' that signals incoming 'refreshable' autoupdate
-    process.on('message', Meteor.bindEnvironment(function (m) {
-      log.debug('client-refresh noticed, stopping Karma');
-      if (m && m.refresh === 'client') {
-        Karma.stop(self.name);
-
+    process.on('message', Meteor.bindEnvironment(function (message) {
+      log.debug('client-refresh noticed, stopping Karma')
+      if (message && message.refresh === 'client') {
         // Listen for message 'on-listening' that signals that the application has been rebuild
         // and is ready to serve
         // * This callback *must* be registered here in 'on-message-refresh-client'
         // * because onListening is a short-lived registration that is removed after firing once
         WebApp.onListening(function () {
           log.debug('WebApp has been updated. Updating Karma config file and starting it up.');
-          self._generateContextHtml();
-          self._generateDebugHtml();
-          Karma.restartWithConfig(self.name, self.getKarmaConfig());
+          self._restartKarma();
         });
       }
     }));
+  },
+
+  _restartKarma: function () {
+    var self = this
+
+    var karmaConfig = this.getKarmaConfig();
+    if (Karma.isRunning(self.name)) {
+      Karma.reloadFileList(self.name, karmaConfig.files)
+    } else {
+      self._generateContextHtml()
+      self._generateDebugHtml()
+      Karma.start(self.name, karmaConfig)
+    }
   },
 
   _generateContextHtml: function () {
@@ -95,8 +100,11 @@ _.extend(ClientUnitTestFramework.prototype, {
 
   _getKarmaHtmlPath: function (type) {
     var fileName = type + '.html'
-    var karmaConfigPath = path.dirname(Karma.getConfigPath(this.name))
-    return path.join(karmaConfigPath, fileName)
+    return path.join(
+      MeteorFilesHelpers.getAppPath(),
+      '.meteor/local/karma/',
+      this.name, fileName
+    )
   },
 
   setUserKarmaConfig: function (config) {
@@ -108,8 +116,6 @@ _.extend(ClientUnitTestFramework.prototype, {
       'urlRoot'
     ]
     this.userKarmaConfig = _.omit(config, blacklist)
-    log.debug('User has changed Karma config. Updating Karma config file.')
-    Karma.restartWithConfig(this.name, this.getKarmaConfig())
   },
 
   getKarmaConfig: function () {
@@ -248,8 +254,7 @@ _.extend(ClientUnitTestFramework.prototype, {
       pattern: basePath + file.path,
       watched: false,
       included: _.contains(['js', 'css'], file.type),
-      served: true,
-      nocache: true
+      served: true
     });
 
     if (file.type === 'asset') {
