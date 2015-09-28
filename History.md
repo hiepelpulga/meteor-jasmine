@@ -1,3 +1,12 @@
+## 0.19.1
+
+* Fix (Package testing): Run client tests after server tests
+* Fix (Package testing): Rerun client tests on changes
+
+## 0.19.0
+
+* Compatibility with Meteor 1.2
+
 ## 0.18.0
 
 * Fix (Client unit): Assets and the head are now loaded correctly.
