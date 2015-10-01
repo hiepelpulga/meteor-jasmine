@@ -9,15 +9,18 @@ Meteor.startup(function () {
 
     if (mirrorInfo.isTestPackagesMode) {
       var hasCompletedOnce = false;
-      Tracker.autorun(function () {
-        var clientAggregateReport = Velocity.Collections.AggregateReports
-          .findOne({name: testFramework.name});
+      Tracker.autorun(function (computation) {
+        if (!computation.firstRun) {
+          var clientAggregateReport = Velocity.Collections.AggregateReports
+            .findOne({name: testFramework.name});
 
-        if (clientAggregateReport) {
-          if (clientAggregateReport.result === 'completed') {
-            hasCompletedOnce = true;
-          } else if (hasCompletedOnce && clientAggregateReport.result === 'pending') {
-            Reload._reload();
+          if (clientAggregateReport) {
+            if (clientAggregateReport.result === 'completed') {
+              hasCompletedOnce = true;
+            } else if (hasCompletedOnce && clientAggregateReport.result === 'pending') {
+              debugger;
+              Reload._reload();
+            }
           }
         }
       });
