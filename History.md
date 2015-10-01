@@ -1,3 +1,8 @@
+## 0.20.1
+
+* Fix (Package testing): Don't reload infinitely
+       when tests completed before (fixes #288)
+
 ## 0.20.0
 
 * Fix: Disable server unit mode by default,
