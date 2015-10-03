@@ -37,7 +37,9 @@ if (process.env.VELOCITY !== '0') {
       Meteor.startup(function () {
         // Queue our function after all other normal startup functions
         Meteor.startup(function () {
-          frameworks.serverIntegration.start()
+          Meteor.defer(function () {
+            frameworks.serverIntegration.start()
+          })
         })
       })
     }

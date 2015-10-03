@@ -1,3 +1,7 @@
+## 0.20.2
+
+* Start performance improvements
+
 ## 0.20.1
 
 * Fix (Package testing): Don't reload infinitely

@@ -6,7 +6,7 @@
 Package.describe({
   name: 'sanjo:jasmine',
   summary: 'Velocity integration of the Jasmine testing framework',
-  version: '0.20.1',
+  version: '0.20.2',
   git: 'https://github.com/Sanjo/meteor-jasmine.git',
   debugOnly: true
 })
@@ -24,7 +24,7 @@ Npm.depends({
 Package.onUse(function (api) {
   api.export('Jasmine', 'server')
 
-  api.versionsFrom('METEOR@1.2.0.1')
+  api.versionsFrom('METEOR@1.2.0.2')
 
   api.use([
     'underscore',
@@ -34,7 +34,7 @@ Package.onUse(function (api) {
     'ddp',
     'jquery', // for jasmine-jquery
     'practicalmeteor:loglevel@1.2.0_2',
-    'velocity:core@0.10.0',
+    'velocity:core@0.10.2',
     'velocity:shim@0.1.0',
     'velocity:meteor-stubs@1.1.0'
   ], ['server', 'client'])

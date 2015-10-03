@@ -11,13 +11,13 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('1.2.0.1');
+  api.versionsFrom('1.2.0.2');
   api.addFiles('package-to-test.js');
   api.export('PackageToTest');
 });
 
 Package.onTest(function(api) {
-  api.use('sanjo:jasmine@0.20.1');
+  api.use('sanjo:jasmine@0.20.2');
   api.use('package-to-test');
   api.addFiles('tests/server/example-spec.js', 'server');
   api.addFiles('tests/client/example-spec.js', 'client');
