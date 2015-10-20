@@ -27,7 +27,7 @@ We provide free support on a best effort basis. That means when we find some tim
 
 #### Premium Support
 
-If need a faster response or have some urgent feature requests, we offer a [premium support service](http://xolv.io/services/velocity-premium-support/).
+If need a faster response or have some urgent feature requests, we offer a [premium support service](http://xolv.io/velocity-premium-support/).
 
 ## Copyright
 
