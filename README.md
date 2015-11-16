@@ -17,7 +17,7 @@ meteor add velocity:html-reporter
 
 ## Getting Started
 
-[Learn how to get started with sanjo:jasmine](https://velocity.readme.io/docs/getting-started-with-jasmine).
+[Learn how to get started with sanjo:jasmine](https://meteor-testing.readme.io/docs/getting-started).
 
 ## Get Support
 
