@@ -1,3 +1,7 @@
+## 0.20.3
+
+* Version constraint updates for Meteor 1.2.1
+
 ## 0.20.2
 
 * Start performance improvements
