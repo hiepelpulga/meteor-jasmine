@@ -24,7 +24,7 @@ Npm.depends({
 Package.onUse(function (api) {
   api.export('Jasmine', 'server')
 
-  api.versionsFrom('METEOR@1.2.0.2')
+  api.versionsFrom('METEOR@1.2.1')
 
   api.use([
     'underscore',
@@ -34,13 +34,13 @@ Package.onUse(function (api) {
     'ddp',
     'jquery', // for jasmine-jquery
     'practicalmeteor:loglevel@1.2.0_2',
-    'velocity:core@0.10.2',
+    'velocity:core@0.10.9',
     'velocity:shim@0.1.0',
     'velocity:meteor-stubs@1.1.0'
   ], ['server', 'client'])
 
   api.use([
-    'sanjo:karma@3.0.2',
+    'sanjo:karma@3.0.3',
     'sanjo:meteor-version@1.0.0',
     'package-version-parser',
     'sanjo:meteor-files-helpers@1.1.0_7'
