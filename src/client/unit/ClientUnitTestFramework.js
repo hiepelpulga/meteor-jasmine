@@ -111,7 +111,7 @@ _.extend(ClientUnitTestFramework.prototype, {
     var blacklist = [
       'autoWatch', 'autoWatchBatchDelay',
       'basePath', 'browserDisconnectTimeout', 'browserDisconnectTolerance',
-      'browserNoActivityTimeout', 'browsers', 'captureTimeout', 'client',
+      'browserNoActivityTimeout', 'captureTimeout', 'client',
       'exclude', 'files', 'frameworks', 'hostname', 'port', 'proxies', 'singleRun',
       'urlRoot'
     ]
@@ -190,7 +190,7 @@ _.extend(ClientUnitTestFramework.prototype, {
           return path.replace(/\.(coffee|litcoffee|coffee\\.md)$/, '.js');
         }
       }
-    }, this.userKarmaConfig)
+    }, this.userKarmaConfig);
     /* jshint camelcase: true */
 
     if (this.userKarmaConfig.plugins) {
