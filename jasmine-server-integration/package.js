@@ -37,7 +37,7 @@ Package.onUse(function (api) {
     'velocity:core@0.10.9',
     'velocity:shim@0.1.0',
     'velocity:meteor-stubs@1.1.0'
-  ], ['server', 'client'])
+  ], 'server')
 
   api.use([
     'sanjo:karma@3.0.3',
@@ -46,7 +46,7 @@ Package.onUse(function (api) {
     'sanjo:meteor-files-helpers@1.1.0_7'
   ], 'server')
 
-  api.addFiles('src/common/lib/log.js', ['server', 'client'])
+  api.addFiles('src/common/lib/log.js', 'server')
 
   api.addFiles([
     'src/common/lib/freeport.js',
@@ -59,7 +59,7 @@ Package.onUse(function (api) {
     'src/common/lib/JasmineTestFramework.js',
     'src/common/lib/JasmineInterface.js',
     'src/common/lib/VelocityTestReporter.js'
-  ], ['server', 'client'])
+  ], 'server')
 
   // ----------------------------------------
   // Files that are needed in the main app and the mirror
