@@ -7,6 +7,7 @@ Package.describe({
   name: 'xolvio:jasmine-server-integration',
   summary: 'Server integration tests with Jasmine',
   version: '0.20.3',
+  documentation: '../README.md',
   git: 'https://github.com/Sanjo/meteor-jasmine.git',
   debugOnly: true
 })
@@ -46,19 +47,19 @@ Package.onUse(function (api) {
     'sanjo:meteor-files-helpers@1.1.0_7'
   ], 'server')
 
-  api.addFiles('src/common/lib/log.js', 'server')
+  api.addFiles('src/lib/log.js', 'server')
 
   api.addFiles([
-    'src/common/lib/freeport.js',
-    'src/common/lib/lazyStart.js',
-    'src/common/lib/MirrorStarter.js'
+    'src/lib/freeport.js',
+    'src/lib/lazyStart.js',
+    'src/lib/MirrorStarter.js'
   ], 'server')
 
   api.addFiles([
-    'src/common/lib/parseStack.js',
-    'src/common/lib/JasmineTestFramework.js',
-    'src/common/lib/JasmineInterface.js',
-    'src/common/lib/VelocityTestReporter.js'
+    'src/lib/parseStack.js',
+    'src/lib/JasmineTestFramework.js',
+    'src/lib/JasmineInterface.js',
+    'src/lib/VelocityTestReporter.js'
   ], 'server')
 
   // ----------------------------------------
@@ -66,7 +67,7 @@ Package.onUse(function (api) {
   // ----------------------------------------
 
   api.addFiles([
-    'src/common/server/integration/ServerIntegrationTestFramework.js'
+    'src/server/integration/ServerIntegrationTestFramework.js'
   ], 'server')
 
   // ----------------------------------------
@@ -75,7 +76,7 @@ Package.onUse(function (api) {
 
   api.addFiles([
     // set up server-side Meteor methods
-    'src/common/server/lib/mirror-info.js'
+    'src/server/lib/mirror-info.js'
   ], 'server')
 
   // ----------------------------------------
@@ -83,19 +84,19 @@ Package.onUse(function (api) {
   // ----------------------------------------
 
   api.addFiles([
-    'src/common/server/lib/runFileInContext.js',
-    'src/common/server/lib/coffee-require.js',
-    'src/common/server/lib/file-loader.js',
-    'src/common/server/lib/load-order-sort.js',
-    'src/common/server/lib/mock-loader.js',
+    'src/server/lib/runFileInContext.js',
+    'src/server/lib/coffee-require.js',
+    'src/server/lib/file-loader.js',
+    'src/server/lib/load-order-sort.js',
+    'src/server/lib/mock-loader.js',
 
-    'src/common/server/unit/included-packages.js',
-    'src/common/server/unit/mock-generator.js',
-    'src/common/server/unit/ServerUnitTestFramework.js',
-    'src/common/client/unit/ClientUnitTestFramework.js',
-    'src/common/client/integration/ClientIntegrationTestFramework.js',
+    'src/server/unit/included-packages.js',
+    'src/server/unit/mock-generator.js',
+    'src/server/unit/ServerUnitTestFramework.js',
+    'src/client/unit/ClientUnitTestFramework.js',
+    'src/client/integration/ClientIntegrationTestFramework.js',
 
-    'src/common/server/lib/get-files.js',
+    'src/server/lib/get-files.js',
     'src/registerFrameworks.js'
   ], 'server')
 
@@ -105,15 +106,15 @@ Package.onUse(function (api) {
 
   api.addAssets([
     // Sample tests
-    'src/common/server/integration/sample-tests/sample/spec/PlayerSpec.js',
-    'src/common/server/integration/sample-tests/sample/spec/SpecMatchers.js',
-    'src/common/server/integration/sample-tests/sample/src/Player.js',
-    'src/common/server/integration/sample-tests/sample/src/Song.js',
+    'src/server/integration/sample-tests/sample/spec/PlayerSpec.js',
+    'src/server/integration/sample-tests/sample/spec/SpecMatchers.js',
+    'src/server/integration/sample-tests/sample/src/Player.js',
+    'src/server/integration/sample-tests/sample/src/Song.js',
     // Other
     '.npm/package/node_modules/component-mocker/index.js',
-    'src/common/lib/mock.js',
-    'src/common/server/lib/contextSpec.js',
-    'src/common/lib/VelocityTestReporter.js'
+    'src/lib/mock.js',
+    'src/server/lib/contextSpec.js',
+    'src/lib/VelocityTestReporter.js'
   ], 'server')
 
 })
