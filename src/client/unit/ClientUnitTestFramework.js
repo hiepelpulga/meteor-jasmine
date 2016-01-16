@@ -111,7 +111,7 @@ _.extend(ClientUnitTestFramework.prototype, {
     var blacklist = [
       'autoWatch', 'autoWatchBatchDelay',
       'basePath', 'browserDisconnectTimeout', 'browserDisconnectTolerance',
-      'browserNoActivityTimeout', 'browsers', 'captureTimeout', 'client',
+      'browserNoActivityTimeout', 'captureTimeout', 'client',
       'exclude', 'files', 'frameworks', 'hostname', 'port', 'proxies', 'singleRun',
       'urlRoot'
     ]
@@ -135,7 +135,8 @@ _.extend(ClientUnitTestFramework.prototype, {
       'ChromeCanary': 'karma-chrome-launcher',
       'Firefox': 'karma-firefox-launcher',
       'PhantomJS': 'karma-phantomjs-launcher',
-      'SauceLabs': 'karma-sauce-launcher'
+      'SauceLabs': 'karma-sauce-launcher',
+      'BrowserStack': 'karma-browserstack-launcher'
     }
 
     var browser = process.env.JASMINE_BROWSER || 'HiddenChrome';
@@ -144,7 +145,7 @@ _.extend(ClientUnitTestFramework.prototype, {
     var basePath = Velocity.getAppPath()
 
     /* jshint camelcase: false */
-    var startOptions = _.extend({}, this.userKarmaConfig, {
+    var startOptions = _.extend({}, {
       port: 9876,
       basePath: basePath,
       frameworks: ['jasmine'],
@@ -189,7 +190,7 @@ _.extend(ClientUnitTestFramework.prototype, {
           return path.replace(/\.(coffee|litcoffee|coffee\\.md)$/, '.js');
         }
       }
-    })
+    }, this.userKarmaConfig);
     /* jshint camelcase: true */
 
     if (this.userKarmaConfig.plugins) {
