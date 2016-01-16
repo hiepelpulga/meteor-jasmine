@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 #export VELOCITY_DEBUG=1
 #export JASMINE_LOG_LEVEL=debug
 #export LONG_RUNNING_CHILD_PROCESS_LOG_LEVEL=debug

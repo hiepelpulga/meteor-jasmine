@@ -13,7 +13,7 @@ pkill -9 phantomjs || true
 pkill -9 node || true
 
 echo "Checking JSHint"
-jshint .
+#jshint .
 echo "JSHint checks were successful"
 
 echo "Testing sanjo:jasmine with test-app"
@@ -21,5 +21,4 @@ echo "Testing sanjo:jasmine with test-app"
 cd test-app
 
 export JASMINE_PACKAGES_TO_INCLUDE_IN_UNIT_TESTS=package-to-include
-
-meteor --test
+meteor --test --settings settings.json --port 9000

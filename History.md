@@ -1,3 +1,8 @@
+## 0.21.0
+
+* Feature (Integration): Support tests that are written in CJSX (CoffeeScript JSX)
+* Feature (Client Unit): Support BrowserStack
+
 ## 0.20.3
 
 * Version constraint updates for Meteor 1.2.1
