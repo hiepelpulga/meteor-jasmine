@@ -1,8 +1,7 @@
 /* globals JasmineInterface: true */
 
-var jasmineRequire = Meteor.isServer ?
-  Npm.require('jasmine-core') :
-  window.jasmineRequire
+import jasmineRequire from 'jasmine-core/lib/jasmine-core/jasmine';
+import {markBottom} from './parseStack';
 
 /**
  * Object that will be directly put into the global context of the running
@@ -15,7 +14,7 @@ var jasmineRequire = Meteor.isServer ?
  * @class JasmineInterface
  * @constructor
  */
-JasmineInterface = function (options) {
+export default function JasmineInterface(options) {
   if (!options || !options.jasmine) {
     throw new Error('[JasmineInterface] Missing required field "jasmine"')
   }
@@ -24,8 +23,8 @@ JasmineInterface = function (options) {
 
   _.extend(this, jasmineRequire.interface(options.jasmine, env))
 
-  var markBottom = function (func) {
-    var boundFunction = parseStack.markBottom(func)
+  var markStackBottom = function (func) {
+    var boundFunction = markBottom(func)
     if (func.length > 0) {
       // Async test
       return function (done) {
@@ -42,7 +41,7 @@ JasmineInterface = function (options) {
   _.forEach(['describe', 'xdescribe', 'fdescribe', 'it', 'fit'], function (word) {
     var originalFunction = this[word]
     this[word] = function (/* arguments */) {
-      arguments[1] = markBottom(arguments[1])
+      arguments[1] = markStackBottom(arguments[1])
       return originalFunction.apply(this, arguments)
     }
   }, this)
@@ -50,7 +49,7 @@ JasmineInterface = function (options) {
   _.forEach(['beforeEach', 'afterEach', 'beforeAll', 'afterAll'], function (word) {
     var originalFunction = this[word]
     this[word] = function (/* arguments */) {
-      arguments[0] = markBottom(arguments[0])
+      arguments[0] = markStackBottom(arguments[0])
       return originalFunction.apply(this, arguments)
     }
   }, this)

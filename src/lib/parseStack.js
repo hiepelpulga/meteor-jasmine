@@ -1,7 +1,3 @@
-/* globals parseStack: true */
-
-parseStack = {};
-
 // Given an Error (eg, 'new Error'), return the stack associated with
 // that error as an array. More recently called functions appear first
 // and each element is an object with keys:
@@ -16,7 +12,7 @@ parseStack = {};
 // If a function on the stack has been marked with mark(), don't
 // return anything past that function. We call this the "user portion"
 // of the stack.
-parseStack.parse = function (err) {
+export function parseStack(err) {
   var frames = err.stack.split('\n');
 
   frames.shift(); // at least the first line is the exception
@@ -75,7 +71,7 @@ parseStack.parse = function (err) {
   });
 
   return ret;
-};
+}
 
 // Decorator. Mark the point at which a stack trace returned by
 // parse() should stop: no frames earlier than this point will be
@@ -84,11 +80,11 @@ parseStack.parse = function (err) {
 // will not be returned, but you'd also say that those frames are "at
 // the bottom of the stack". Frames below the bottom are the outer
 // context of the framework running the user's code.
-parseStack.markBottom = function (f) {
+export function markBottom(f) {
   return function __bottom_mark__ () {
     return f.apply(this, arguments);
   };
-};
+}
 
 // Decorator. Mark the point at which a stack trace returned by
 // parse() should begin: no frames later than this point will be
@@ -96,8 +92,8 @@ parseStack.markBottom = function (f) {
 // Frames above the top are helper functions defined by the
 // framework and executed by user code whose internal behavior
 // should not be exposed.
-parseStack.markTop = function (f) {
+export function markTop(f) {
   return function __top_mark__ () {
     return f.apply(this, arguments);
   };
-};
+}
