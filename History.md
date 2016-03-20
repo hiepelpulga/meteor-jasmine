@@ -1,4 +1,4 @@
-## 1.0.0
+## 1.0.0-rc.3
 
 The new version uses the Meteor app testing API that has been introduced
 in Meteor 1.3. The aim of this package is to integrate Jasmine with
@@ -7,17 +7,23 @@ the Meteor testing API in the same way as the Mocha package does it.
 You run your tests now with:
 `meteor test --driver-package sanjo:jasmine --full-app`
 
-`--full-app` is optional. Read the Meteor Guide testing section for an explanation.
+`--full-app` is optional. Read the [Meteor Guide testing section](https://github.com/meteor/guide/blob/testing-modules-content/content/testing.md) for an explanation.
 
 Breaking changes:
-* Your tests can no longer be in a tests folder and they need to end with one of the test extensions.
-  Read the Meteor Guide testing section for more info.
+* Your tests can no longer be in a folder named "tests"
+  and the test files need to end with one of the test extensions.
+  Read the [Meteor Guide testing section](https://github.com/meteor/guide/blob/testing-modules-content/content/testing.md) for more info.
 * MeteorStubs is no longer a dependency of sanjo:jasmine.
   You need to depend on the package directly, to use it.
 * Component mocker and the mock function is no longer part of sanjo:jasmine.
 * The Karma integration has been removed. Use the Karma Test Runner directly
   instead if you want to. We have an example in:
-   https://github.com/xolvio/automated-testing-best-practices/tree/wip/migrate_1.3
+  https://github.com/xolvio/automated-testing-best-practices/tree/wip/migrate_1.3
+* The reporter is now a dependency of sanjo:jasmine.
+  Currently only a console reporter is supported.
+  
+Still missing:
+* Running tests in CI
 
 ## 0.21.0
 

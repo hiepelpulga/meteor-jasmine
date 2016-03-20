@@ -25,7 +25,7 @@ Package.onUse(function (api) {
     'ddp',
     'jquery', // for jasmine-jquery
     'velocity:reports@1.0.0-rc.3',
-    'velocity:console-reporter@0.1.4',
+    'velocity:console-reporter@0.2.0-rc.3',
   ], ['server', 'client'])
 
   api.mainModule('server.js', 'server');
