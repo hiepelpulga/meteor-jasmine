@@ -1,4 +1,4 @@
-## 1.0.0-rc.3
+## 1.0.0
 
 The new version uses the Meteor app testing API that has been introduced
 in Meteor 1.3. The aim of this package is to integrate Jasmine with
@@ -19,8 +19,6 @@ Breaking changes:
 * The Karma integration has been removed. Use the Karma Test Runner directly
   instead if you want to. We have an example in:
   https://github.com/xolvio/automated-testing-best-practices/tree/wip/migrate_1.3
-* The reporter is now a dependency of sanjo:jasmine.
-  Currently only a console reporter is supported.
   
 Still missing:
 * Running tests in CI

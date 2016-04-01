@@ -17,6 +17,7 @@ ecmascript              # Enable ECMAScript2015+ syntax in app code
 
 sanjo:jasmine
 velocity:console-reporter
+velocity:html-reporter
 audit-argument-checks
 package-to-include
 iron:router

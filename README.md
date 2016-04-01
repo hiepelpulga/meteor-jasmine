@@ -10,6 +10,8 @@ meteor add sanjo:jasmine
 ```
 
 You also need to install a [Velocity Reporter package](https://github.com/meteor-velocity/velocity#reporters) to see the test results.
+Only the `velocity:html-reporter` and `velocity:console-reporter` packages are compatible with
+Meteor 1.3 right now.
 
 ```bash
 meteor add velocity:html-reporter

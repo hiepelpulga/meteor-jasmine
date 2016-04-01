@@ -3,7 +3,7 @@
 Package.describe({
   name: 'sanjo:jasmine',
   summary: 'Velocity integration of the Jasmine testing framework',
-  version: '1.0.0-rc.3',
+  version: '1.0.0',
   git: 'https://github.com/Sanjo/meteor-jasmine.git',
   documentation: '../README.md',
   testOnly: true
@@ -14,7 +14,7 @@ Npm.depends({
 })
 
 Package.onUse(function (api) {
-  api.versionsFrom('METEOR@1.3-rc.3')
+  api.versionsFrom('METEOR@1.3')
 
   api.use([
     'ecmascript',
@@ -24,8 +24,7 @@ Package.onUse(function (api) {
     'webapp',
     'ddp',
     'jquery', // for jasmine-jquery
-    'velocity:reports@1.0.0-rc.3',
-    'velocity:console-reporter@0.2.0-rc.3',
+    'velocity:reports@1.0.0'
   ], ['server', 'client'])
 
   api.mainModule('server.js', 'server');
