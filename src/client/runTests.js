@@ -3,12 +3,17 @@ import initJasmineJquery from './jasmine-jquery';
 import JasmineInterface from '../lib/JasmineInterface';
 import VelocityTestReporter from '../lib/VelocityTestReporter';
 
+function init() {
+  _.extend(global, new JasmineInterface({jasmine}))
+  initJasmineJquery()
+}
+
+const jasmine = jasmineRequire.core(jasmineRequire)
+init()
+
 export default function runTests(testCodeBlocks) {
   const name = 'jasmine-client';
-  const jasmine = jasmineRequire.core(jasmineRequire)
-  const jasmineInterface = new JasmineInterface({jasmine})
-  _.extend(global, jasmineInterface)
-  initJasmineJquery();
+  init()
 
   // Setting up timing functions to be able to be overridden.
   // Certain browsers (Safari, IE 8, phantomjs) require this hack.
