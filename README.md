@@ -9,9 +9,10 @@ Makes it easy to test your Meteor app and packages with unit and integration tes
 meteor add sanjo:jasmine
 ```
 
-You also need to install a [Velocity Reporter package](https://github.com/meteor-velocity/velocity#reporters) to see the test results.
-Only the `velocity:html-reporter` and `velocity:console-reporter` packages are compatible with
-Meteor 1.3 right now.
+You also need to install a reporter package to see the test results. Currently the following packages are available:
+
+* [velocity:html-reporter](https://atmospherejs.com/velocity/html-reporter) >= 0.10.0
+* [velocity:console-reporter](https://atmospherejs.com/velocity/console-reporter) >= 0.2.1
 
 ```bash
 meteor add velocity:html-reporter
