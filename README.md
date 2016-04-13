@@ -22,6 +22,8 @@ For example:
 meteor add velocity:html-reporter
 ```
 
+You can find an [example app in the repository](https://github.com/xolvio/meteor-jasmine/tree/master/test-app).
+
 ### Package testing
 
 [Instructions for package testing](https://meteor-testing.readme.io/v1.0/docs/jasmine-testing-a-meteor-package).
