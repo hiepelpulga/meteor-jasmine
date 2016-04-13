@@ -3,7 +3,7 @@
 Package.describe({
   name: 'sanjo:jasmine',
   summary: 'Velocity integration of the Jasmine testing framework',
-  version: '1.0.0',
+  version: '1.0.1',
   git: 'https://github.com/Sanjo/meteor-jasmine.git',
   documentation: '../README.md',
   testOnly: true

@@ -1,3 +1,7 @@
+## 1.0.1
+
+* Improvement: Make jasmine available before running tests on client side (fixes #332)
+
 ## 1.0.0
 
 The new version uses the Meteor app testing API that has been introduced
