@@ -1,6 +1,10 @@
 # Jasmine
 
-The Meteor integration for the [Jasmine 2.4](http://jasmine.github.io/2.3/introduction.html) testing framework.
+This package is __no longer maintained!__
+
+See [Migrate to Mocha](https://github.com/xolvio/meteor-jasmine/wiki/Migrate-to-Mocha) for how to use the Jasmine expect and spyOn APIs with Mocha.
+
+This package is the Meteor integration for the [Jasmine 2.4](http://jasmine.github.io/2.3/introduction.html) testing framework.
 Makes it easy to test your Meteor app and packages with unit and integration tests. For end-to-end tests with Jasmine check out [Chimp](https://chimp.readme.io/docs/getting-started-jasmine).
 
 ## Installation
