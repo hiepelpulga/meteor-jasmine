@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "./run-ci.sh"
+  },
+  "devDependencies": {
+    "@sanjo/jasmine-expect": "^1.0.0",
+    "@sanjo/jasmine-spy": "^1.0.0",
+    "jasmine-jquery": "^2.1.1"
+  },
+  "dependencies": {
+    "jquery": "^2.2.3",
+    "meteor-node-stubs": "^0.2.3"
+  }
+}

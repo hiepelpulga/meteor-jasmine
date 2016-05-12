@@ -1,4 +1,4 @@
-xdescribe('On exception', function () {
+describe.skip('On exception', function () {
   it('the test fails', function () {
     throw new Error('fire!');
   })

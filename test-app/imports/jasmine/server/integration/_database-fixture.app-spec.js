@@ -56,7 +56,7 @@ loadDefaultFixtures = function () {
   console.log('Finished loading default fixtures');
 };
 
-beforeAll(function () {
+before(function () {
   resetDatabase();
   loadDefaultFixtures();
   console.log('Done fixtures')
